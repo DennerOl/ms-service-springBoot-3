@@ -1,23 +1,32 @@
+server:
+  port: 8091
+spring:
+  application:
+    name: worker
+    
+    spring:
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+    
 eureka:
-  
+  instance:
+    hostname: localhost
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
 
 
-
-server:
-  port: 8090
-spring:
-  application:
-    name: worker
-  datasource:
+datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5433/worker
     username: postgres
     password: 1234567
-  jpa:
+jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+    
+    
+    
+    
